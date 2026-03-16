@@ -1,0 +1,10 @@
+# Intellij
+*.iml
+
+# Maven
+.m2/
+settings.xml
+target/
+*.releaseBAckup
+release.properties
+/.idea/

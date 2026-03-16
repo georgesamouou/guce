@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: "20260309-001-add-content-type-to-attachment"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            columnExists:
+              tableName: fimex_attachment
+              columnName: content_type
+      changes:
+        - addColumn:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: content_type
+                  type: varchar(100)
+                  defaultValue: "application/octet-stream"
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropColumn:
+            tableName: fimex_attachment
+            columnName: content_type

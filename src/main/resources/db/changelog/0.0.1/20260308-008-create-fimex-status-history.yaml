@@ -1,0 +1,49 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: 20260308-008-create-fimex-status-history
+      author: ridha
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: fimex_status_history
+      changes:
+        - createTable:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: request_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_status_history_document
+                    references: fimex_request(id)
+              - column:
+                  name: from_status
+                  type: varchar(50)
+              - column:
+                  name: to_status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: changed_by
+                  type: uuid
+              - column:
+                  name: comment
+                  type: text
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: fimex_status_history

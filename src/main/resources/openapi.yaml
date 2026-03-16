@@ -1,0 +1,94 @@
+﻿openapi: 3.0.3
+info:
+  title: FIMEX Application Service API
+  description: API REST de l'application FIMEX (Fichier des Importateurs et Exportateurs) gérant le cycle de vie des demandes d'import/export.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Serveur de développement local
+paths:
+  /api/v1/fimex/documents:
+    post:
+      summary: Créer une nouvelle demande FIMEX
+      description: Initialise une nouvelle demande FIMEX avec ses références (Bureau, Organisme, Type de demande) et sa liste de produits SH. Les données acteur (Noms, Adresses) ne sont pas incluses car gérées de manière asynchrone via Kafka.
+      operationId: createFimexDocument
+      tags:
+        - Documents FIMEX
+      requestBody:
+        description: Payload contenant les références nécessaires à la création de la demande.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFimexDocumentRequest'
+      responses:
+        '201':
+          description: la demande FIMEX a été créé avec succès.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFimexDocumentResponse'
+        '400':
+          description: Requête invalide (paramètres manquants ou mal formatés).
+        '500':
+          description: Erreur interne du serveur.
+
+components:
+  schemas:
+    CreateFimexDocumentRequest:
+      type: object
+      required:
+        - clientId
+        - officeId
+        - organizationId
+        - requestTypeId
+        - isRenewal
+      properties:
+        clientId:
+          type: string
+          format: uuid
+          description: ID technique du client (Importateur/Exportateur) synchronisé depuis ms-actor.
+          example: "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        officeId:
+          type: string
+          format: uuid
+          description: ID technique du bureau de rattachement synchronisé depuis ms-referential.
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        organizationId:
+          type: string
+          format: uuid
+          description: ID technique de l'organisme cible (ex SGS) synchronisé depuis ms-referential.
+          example: "a3bb189e-8bf9-3888-9912-ace4e6543002"
+        requestTypeId:
+          type: string
+          format: uuid
+          description: ID technique du type de demande (Inscription, Auto Spéciale).
+          example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+        isRenewal:
+          type: boolean
+          description: Indique si la demande est un renouvellement.
+          example: false
+        products:
+          type: array
+          description: Liste des marchandises liées à cette demande FIMEX.
+          items:
+            $ref: '#/components/schemas/FimexProduct'
+            
+    FimexProduct:
+      type: object
+      required:
+        - codeSh
+      properties:
+        codeSh:
+          type: string
+          description: Code du Système Harmonisé (SH) du produit, référencé depuis ms-produit.
+          example: "85171200"
+
+    CreateFimexDocumentResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: L'identifiant technique (UUID) unique de la demande FIMEX généré.
+          example: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"

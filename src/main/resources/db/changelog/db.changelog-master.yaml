@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/0.0.1/20260308-001-create-ref-tables.yaml
+  - include:
+      file: db/changelog/0.0.1/20260308-002-create-fimex-request.yaml
+  - include:
+      file: db/changelog/0.0.1/20260308-003-create-fimex-product.yaml
+  - include:
+      file: db/changelog/0.0.1/20260308-004-create-fimex-attachment.yaml
+  - include:
+      file: db/changelog/0.0.1/20260308-005-create-fimex-sequence.yaml
+  - include:
+      file: db/changelog/0.0.1/20260308-008-create-fimex-status-history.yaml
+  - include:
+      file: db/changelog/0.0.1/20260308-009-add-fimex-request-indexes.yaml
+  - include:
+      file: db/changelog/0.0.1/20260309-001-add-content-type-to-attachment.yaml
+  - include:
+      file: db/changelog/0.0.1/20260311-add-others-datas.yaml

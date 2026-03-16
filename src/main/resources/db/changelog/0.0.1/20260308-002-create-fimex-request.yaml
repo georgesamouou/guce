@@ -1,0 +1,78 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: "20260308-010-fimex-request"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: fimex_request
+      changes:
+        - createTable:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: client_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_fimex_doc_client
+                    references: ref_client(id)
+              - column:
+                  name: request_type_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_fimex_doc_req_type
+                    references: ref_request_type(id)
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_renewal
+                  type: boolean
+                  defaultValueBoolean: false
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ref_file_number
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+              - column:
+                  name: requested_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expiry_date
+                  type: date
+              - column:
+                  name: agent_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_fimex_doc_agent
+                    references: ref_agent(id)
+              - column:
+                  name: signatory_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_fimex_doc_signatory
+                    references: ref_agent(id)
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+      rollback:
+        - dropTable:
+            tableName: fimex_request

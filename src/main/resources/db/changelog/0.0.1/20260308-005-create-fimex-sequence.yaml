@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260308-005-create-fimex-ref-sequence
+      author: ridha
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - sequenceExists:
+                sequenceName: fimex_ref_number_seq
+      changes:
+        - createSequence:
+            sequenceName: fimex_ref_number_seq
+            startValue: 1
+            incrementBy: 1

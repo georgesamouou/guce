@@ -1,0 +1,63 @@
+info:
+  app:
+    version: '@project.version@'
+
+server:
+  servlet:
+    context-path: "/application-service"
+
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:4201"
+  allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+  allowed-headers: "*"
+  allow-credentials: true
+  max-age: 3600
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/eguce3g
+  sql:
+    init:
+      platform: postgres
+      mode: always
+  # Outbox
+  outbox:
+    default-scheduler:
+      enabled: false
+    processor:
+      enabled: false
+    kafka-publication-batch-size: 10
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.guce: ${LOGGING_LEVEL_COM_GUCE:DEBUG}
+    org.hibernate: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  tracing:
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://localhost:4318/v1/traces}

@@ -1,0 +1,80 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: 20260308-009-idx-fimex-request-status
+      author: ridha
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_fimex_request_status
+      changes:
+        - createIndex:
+            indexName: idx_fimex_request_status
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: status
+      rollback:
+        - dropIndex:
+            indexName: idx_fimex_request_status
+            tableName: fimex_request
+
+  - changeSet:
+      id: 20260308-009-idx-fimex-request-client-id
+      author: ridha
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_fimex_request_client_id
+      changes:
+        - createIndex:
+            indexName: idx_fimex_request_client_id
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: client_id
+      rollback:
+        - dropIndex:
+            indexName: idx_fimex_request_client_id
+            tableName: fimex_request
+
+  - changeSet:
+      id: 20260308-009-idx-fimex-request-requested-date
+      author: ridha
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_fimex_request_requested_date
+      changes:
+        - createIndex:
+            indexName: idx_fimex_request_requested_date
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: requested_date
+      rollback:
+        - dropIndex:
+            indexName: idx_fimex_request_requested_date
+            tableName: fimex_request
+
+  - changeSet:
+      id: 20260308-009-idx-fimex-request-created-at
+      author: ridha
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - indexExists:
+                indexName: idx_fimex_request_created_at
+      changes:
+        - createIndex:
+            indexName: idx_fimex_request_created_at
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: created_at
+      rollback:
+        - dropIndex:
+            indexName: idx_fimex_request_created_at
+            tableName: fimex_request

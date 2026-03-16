@@ -1,0 +1,54 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: "20260308-008-fimex-attachment"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: fimex_attachment
+      changes:
+        - createTable:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: request_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_fimex_att_doc
+                    references: fimex_request(id)
+              - column:
+                  name: attachment_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: file_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: bytea
+                  constraints:
+                    nullable: false
+              - column:
+                  name: file_status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: upload_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: fimex_attachment

@@ -1,0 +1,76 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: application-service-db
+    environment:
+      POSTGRES_DB: application_service
+      POSTGRES_USER: application
+      POSTGRES_PASSWORD: application
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U application -d application_service"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.7.0
+    container_name: application-service-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2182:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.7.0
+    container_name: application-service-kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9093:9092"
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.7.0
+    container_name: application-service-schema-registry
+    depends_on:
+      - kafka
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8082:8081"
+
+  application-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: application-service-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_started
+      schema-registry:
+        condition: service_started
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/application_service
+      - SPRING_DATASOURCE_USERNAME=application
+      - SPRING_DATASOURCE_PASSWORD=application
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - SPRING_KAFKA_PROPERTIES_SCHEMA_REGISTRY_URL=http://schema-registry:8081
+      - LOGGING_LEVEL_COM_GUCE=INFO
+    ports:
+      - "8084:8084"
+
+volumes:
+  postgres_data:

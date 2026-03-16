@@ -1,0 +1,2626 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260311-001-insert-ref-request-type
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_request_type
+      changes:
+        - insert:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: code
+                  value: IMPORTER_REGISTRATION
+              - column:
+                  name: label
+                  value: Enregistrement Importateur
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: code
+                  value: EXPORTER_REGISTRATION
+              - column:
+                  name: label
+                  value: Enregistrement Exportateur
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  value: c3d4e5f6-a7b8-6c7d-0e9f-1a2b3c4d5e6f
+              - column:
+                  name: code
+                  value: SPECIAL_AUTHORIZATION
+              - column:
+                  name: label
+                  value: Autorisation Spéciale
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  value: d4e5f6a7-b8c9-7d8e-1f0a-2b3c4d5e6f7a
+              - column:
+                  name: code
+                  value: LICENSE_IMPORT
+              - column:
+                  name: label
+                  value: Licence d'Importation
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  value: e5f6a7b8-c9d0-8e9f-2a1b-3c4d5e6f7a8b
+              - column:
+                  name: code
+                  value: LICENSE_EXPORT
+              - column:
+                  name: label
+                  value: Licence d'Exportation
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  value: f6a7b8c9-d0e1-9f0a-3b2c-4d5e6f7a8b9c
+              - column:
+                  name: code
+                  value: CERTIFICATE_ORIGIN
+              - column:
+                  name: label
+                  value: Certificat d'Origine
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-002-insert-ref-office
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_office
+      changes:
+        - insert:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  value: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+              - column:
+                  name: code
+                  value: OFF-PAR-001
+              - column:
+                  name: label
+                  value: Bureau Paris - Île-de-France
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  value: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+              - column:
+                  name: code
+                  value: OFF-LYO-001
+              - column:
+                  name: label
+                  value: Bureau Lyon - Auvergne-Rhône-Alpes
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  value: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+              - column:
+                  name: code
+                  value: OFF-MRS-001
+              - column:
+                  name: label
+                  value: Bureau Marseille - Provence-Alpes-Côte d'Azur
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  value: 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+              - column:
+                  name: code
+                  value: OFF-BOD-001
+              - column:
+                  name: label
+                  value: Bureau Bordeaux - Nouvelle-Aquitaine
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  value: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+              - column:
+                  name: code
+                  value: OFF-LIL-001
+              - column:
+                  name: label
+                  value: Bureau Lille - Hauts-de-France
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  value: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+              - column:
+                  name: code
+                  value: OFF-STR-001
+              - column:
+                  name: label
+                  value: Bureau Strasbourg - Grand Est
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-003-insert-ref-organization
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_organization
+      changes:
+        - insert:
+            tableName: ref_organization
+            columns:
+              - column:
+                  name: id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: code
+                  value: ORG-SARL
+              - column:
+                  name: label
+                  value: Société à Responsabilité Limitée
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_organization
+            columns:
+              - column:
+                  name: id
+                  value: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+              - column:
+                  name: code
+                  value: ORG-SA
+              - column:
+                  name: label
+                  value: Société Anonyme
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_organization
+            columns:
+              - column:
+                  name: id
+                  value: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+              - column:
+                  name: code
+                  value: ORG-SAS
+              - column:
+                  name: label
+                  value: Société par Actions Simplifiée
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-004-insert-test-client-request
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_client WHERE taxpayer_number = '999999999'
+      changes:
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: taxpayer_number
+                  value: '999999999'
+              - column:
+                  name: company_name
+                  value: 'Test client no-auth'
+              - column:
+                  name: office_id
+                  value: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 22222222-2222-2222-2222-222222222222
+              - column:
+                  name: client_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: EXPIRED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIM-2025-00001
+              - column:
+                  name: requested_date
+                  valueDate: 2025-01-01T10:00:00
+              - column:
+                  name: expiry_date
+                  valueDate: 2025-12-31
+              - column:
+                  name: agent_id
+                  value: NULL
+              - column:
+                  name: signatory_id
+                  value: NULL
+              - column:
+                  name: created_at
+                  valueDate: 2025-01-01T10:00:00
+              - column:
+                  name: updated_at
+                  valueDate: 2025-01-01T10:00:00
+        - insert:
+            tableName: ref_organization
+            columns:
+              - column:
+                  name: id
+                  value: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
+              - column:
+                  name: code
+                  value: ORG-EI
+              - column:
+                  name: label
+                  value: Entreprise Individuelle
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_organization
+            columns:
+              - column:
+                  name: id
+                  value: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+              - column:
+                  name: code
+                  value: ORG-EURL
+              - column:
+                  name: label
+                  value: Entreprise Unipersonnelle à Responsabilité Limitée
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-004-insert-ref-agent
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_agent
+      changes:
+        - insert:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: full_name
+                  value: Jean Dupont
+              - column:
+                  name: email
+                  value: jean.dupont@mincommerce.fr
+              - column:
+                  name: role
+                  value: INSTRUCTOR
+              - column:
+                  name: title
+                  value: Agent d'instruction principal
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: full_name
+                  value: Marie Martin
+              - column:
+                  name: email
+                  value: marie.martin@mincommerce.fr
+              - column:
+                  name: role
+                  value: INSTRUCTOR
+              - column:
+                  name: title
+                  value: Agent d'instruction
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  value: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+              - column:
+                  name: full_name
+                  value: Pierre Bernard
+              - column:
+                  name: email
+                  value: pierre.bernard@mincommerce.fr
+              - column:
+                  name: role
+                  value: SUPERVISOR
+              - column:
+                  name: title
+                  value: Chef de service
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: full_name
+                  value: Sophie Petit
+              - column:
+                  name: email
+                  value: sophie.petit@mincommerce.fr
+              - column:
+                  name: role
+                  value: SIGNATORY
+              - column:
+                  name: title
+                  value: Signataire autorisé
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  value: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+              - column:
+                  name: full_name
+                  value: Thomas Leroy
+              - column:
+                  name: email
+                  value: thomas.leroy@mincommerce.fr
+              - column:
+                  name: role
+                  value: INSTRUCTOR
+              - column:
+                  name: title
+                  value: Agent d'instruction
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  value: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+              - column:
+                  name: full_name
+                  value: Claire Dubois
+              - column:
+                  name: email
+                  value: claire.dubois@mincommerce.fr
+              - column:
+                  name: role
+                  value: SIGNATORY
+              - column:
+                  name: title
+                  value: Signataire adjoint
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-005-insert-ref-client
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_client WHERE id IN ('4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b', '5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c')
+      changes:
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b
+              - column:
+                  name: taxpayer_number
+                  value: TAX111111
+              - column:
+                  name: company_name
+                  value: Electro Imp
+              - column:
+                  name: office_id
+                  value: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
+              - column:
+                  name: taxpayer_number
+                  value: TAX222222
+              - column:
+                  name: company_name
+                  value: Textile Exp
+              - column:
+                  name: office_id
+                  value: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+              - column:
+                  name: organization_id
+                  value: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+              - column:
+                  name: taxpayer_number
+                  value: TAX333333
+              - column:
+                  name: company_name
+                  value: Pharma Imp
+              - column:
+                  name: office_id
+                  value: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+              - column:
+                  name: organization_id
+                  value: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+              - column:
+                  name: taxpayer_number
+                  value: TAX444444
+              - column:
+                  name: company_name
+                  value: Cosmetic Imp
+              - column:
+                  name: office_id
+                  value: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+              - column:
+                  name: taxpayer_number
+                  value: TAX555555
+              - column:
+                  name: company_name
+                  value: Choco Exp
+              - column:
+                  name: office_id
+                  value: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+              - column:
+                  name: organization_id
+                  value: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+              - column:
+                  name: taxpayer_number
+                  value: TAX666666
+              - column:
+                  name: company_name
+                  value: Flora Imp
+              - column:
+                  name: office_id
+                  value: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+              - column:
+                  name: organization_id
+                  value: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+              - column:
+                  name: taxpayer_number
+                  value: TAX777777
+              - column:
+                  name: company_name
+                  value: Agri Exp
+              - column:
+                  name: office_id
+                  value: 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c
+              - column:
+                  name: taxpayer_number
+                  value: TAX888888
+              - column:
+                  name: company_name
+                  value: Aroma Imp
+              - column:
+                  name: office_id
+                  value: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+              - column:
+                  name: organization_id
+                  value: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+              - column:
+                  name: taxpayer_number
+                  value: TAX999999
+              - column:
+                  name: company_name
+                  value: Spice Imp
+              - column:
+                  name: office_id
+                  value: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+              - column:
+                  name: organization_id
+                  value: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e
+              - column:
+                  name: taxpayer_number
+                  value: TAX101010
+              - column:
+                  name: company_name
+                  value: Meubles Imp
+              - column:
+                  name: office_id
+                  value: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f
+              - column:
+                  name: taxpayer_number
+                  value: TAX111000
+              - column:
+                  name: company_name
+                  value: Smart Exp
+              - column:
+                  name: office_id
+                  value: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+              - column:
+                  name: organization_id
+                  value: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a
+              - column:
+                  name: taxpayer_number
+                  value: TAX222000
+              - column:
+                  name: company_name
+                  value: Machine Exp
+              - column:
+                  name: office_id
+                  value: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+              - column:
+                  name: organization_id
+                  value: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b
+              - column:
+                  name: taxpayer_number
+                  value: TAX777000
+              - column:
+                  name: company_name
+                  value: Textile Imp
+              - column:
+                  name: office_id
+                  value: 1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c
+              - column:
+                  name: taxpayer_number
+                  value: TAX888000
+              - column:
+                  name: company_name
+                  value: Cosmetic Exp
+              - column:
+                  name: office_id
+                  value: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+              - column:
+                  name: organization_id
+                  value: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
+              - column:
+                  name: taxpayer_number
+                  value: TAX999000
+              - column:
+                  name: company_name
+                  value: Pharma Exp
+              - column:
+                  name: office_id
+                  value: 2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c
+              - column:
+                  name: organization_id
+                  value: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  value: 9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+              - column:
+                  name: taxpayer_number
+                  value: TAX333000
+              - column:
+                  name: company_name
+                  value: Café Import
+              - column:
+                  name: office_id
+                  value: 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+              - column:
+                  name: organization_id
+                  value: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-006-insert-ref-product
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM ref_product
+      changes:
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 8517.12
+              - column:
+                  name: description
+                  value: Smartphones électroniques
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 0901.21
+              - column:
+                  name: description
+                  value: Café grain Arabica
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 8479.89
+              - column:
+                  name: description
+                  value: Machines industrielles
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 6403.99
+              - column:
+                  name: description
+                  value: Chaussures en cuir
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 1509.20
+              - column:
+                  name: description
+                  value: Huile d'olive extra vierge
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 8517.62
+              - column:
+                  name: description
+                  value: Équipements électroniques
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 3004.90
+              - column:
+                  name: description
+                  value: Produits pharmaceutiques
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 3304.99
+              - column:
+                  name: description
+                  value: Produits cosmétiques
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 1806.31
+              - column:
+                  name: description
+                  value: Chocolats et confiseries
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 0603.19
+              - column:
+                  name: description
+                  value: Fleurs et plantes
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 0709.99
+              - column:
+                  name: description
+                  value: Produits agricoles frais
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 3301.29
+              - column:
+                  name: description
+                  value: Huiles essentielles
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 6204.49
+              - column:
+                  name: description
+                  value: Textiles et vêtements
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 0904.11
+              - column:
+                  name: description
+                  value: Épices et thés
+              - column:
+                  name: is_active
+                  valueBoolean: true
+        - insert:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  value: 9401.51
+              - column:
+                  name: description
+                  value: Meubles en rotin
+              - column:
+                  name: is_active
+                  valueBoolean: true
+
+  - changeSet:
+      id: 20260311-007-insert-fimex-request-approved
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_request WHERE ref_file_number = 'FIMEX-2026-00001'
+      changes:
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: client_id
+                  value: 4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00001
+              - column:
+                  name: requested_date
+                  value: "2026-01-10 09:00:00"
+              - column:
+                  name: expiry_date
+                  value: "2027-01-10"
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: created_at
+                  value: "2026-01-10 09:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-01-15 14:30:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 22222222-2222-2222-2222-222222222222
+              - column:
+                  name: client_id
+                  value: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
+              - column:
+                  name: request_type_id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00002
+              - column:
+                  name: requested_date
+                  value: "2026-01-12 10:30:00"
+              - column:
+                  name: expiry_date
+                  value: "2027-01-12"
+              - column:
+                  name: agent_id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: signatory_id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: created_at
+                  value: "2026-01-12 10:30:00"
+              - column:
+                  name: updated_at
+                  value: "2026-01-18 11:45:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 33333333-3333-3333-3333-333333333333
+              - column:
+                  name: client_id
+                  value: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+              - column:
+                  name: request_type_id
+                  value: c3d4e5f6-a7b8-6c7d-0e9f-1a2b3c4d5e6f
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00003
+              - column:
+                  name: requested_date
+                  value: "2026-01-15 14:00:00"
+              - column:
+                  name: expiry_date
+                  value: "2026-07-15"
+              - column:
+                  name: agent_id
+                  value: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+              - column:
+                  name: signatory_id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: created_at
+                  value: "2026-01-15 14:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-01-22 16:30:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 44444444-4444-4444-4444-444444444444
+              - column:
+                  name: client_id
+                  value: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00004
+              - column:
+                  name: requested_date
+                  value: "2026-01-18 11:00:00"
+              - column:
+                  name: expiry_date
+                  value: "2027-01-18"
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: created_at
+                  value: "2026-01-18 11:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-01-25 10:15:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 55555555-5555-5555-5555-555555555555
+              - column:
+                  name: client_id
+                  value: 8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f
+              - column:
+                  name: request_type_id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00005
+              - column:
+                  name: requested_date
+                  value: "2026-01-20 09:30:00"
+              - column:
+                  name: expiry_date
+                  value: "2027-01-20"
+              - column:
+                  name: agent_id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: signatory_id
+                  value: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+              - column:
+                  name: created_at
+                  value: "2026-01-20 09:30:00"
+              - column:
+                  name: updated_at
+                  value: "2026-01-27 14:45:00"
+
+  - changeSet:
+      id: 20260311-008-insert-fimex-request-in-progress
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_request WHERE ref_file_number = 'FIMEX-2026-00006'
+      changes:
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 66666666-6666-6666-6666-666666666666
+              - column:
+                  name: client_id
+                  value: 9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: INITIATED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00006
+              - column:
+                  name: requested_date
+                  value: "2026-02-05 10:00:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-05 10:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-05 10:00:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 77777777-7777-7777-7777-777777777777
+              - column:
+                  name: client_id
+                  value: 0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+              - column:
+                  name: request_type_id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: status
+                  value: INITIATED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00007
+              - column:
+                  name: requested_date
+                  value: "2026-02-07 11:30:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-07 11:30:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-07 11:30:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 88888888-8888-8888-8888-888888888888
+              - column:
+                  name: client_id
+                  value: 1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c
+              - column:
+                  name: request_type_id
+                  value: c3d4e5f6-a7b8-6c7d-0e9f-1a2b3c4d5e6f
+              - column:
+                  name: status
+                  value: INITIATED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00008
+              - column:
+                  name: requested_date
+                  value: "2026-02-08 14:15:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-08 14:15:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-08 14:15:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 99999999-9999-9999-9999-999999999999
+              - column:
+                  name: client_id
+                  value: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: INITIATED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00009
+              - column:
+                  name: requested_date
+                  value: "2026-02-10 09:45:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-10 09:45:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-10 09:45:00"
+
+  - changeSet:
+      id: 20260311-009-insert-fimex-request-awaiting-signature
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_request WHERE ref_file_number = 'FIMEX-2026-00010'
+      changes:
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+              - column:
+                  name: client_id
+                  value: 3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00010
+              - column:
+                  name: requested_date
+                  value: "2026-02-12 10:00:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: signatory_id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: created_at
+                  value: "2026-02-12 10:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-15 16:30:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+              - column:
+                  name: client_id
+                  value: 4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f
+              - column:
+                  name: request_type_id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00011
+              - column:
+                  name: requested_date
+                  value: "2026-02-13 11:30:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+              - column:
+                  name: created_at
+                  value: "2026-02-13 11:30:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-16 14:15:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: cccccccc-cccc-cccc-cccc-cccccccccccc
+              - column:
+                  name: client_id
+                  value: 5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a
+              - column:
+                  name: request_type_id
+                  value: c3d4e5f6-a7b8-6c7d-0e9f-1a2b3c4d5e6f
+              - column:
+                  name: status
+                  value: SIGNED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00012
+              - column:
+                  name: requested_date
+                  value: "2026-02-14 09:15:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+              - column:
+                  name: signatory_id
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: created_at
+                  value: "2026-02-14 09:15:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-17 11:00:00"
+
+  - changeSet:
+      id: 20260311-010-insert-fimex-request-rejected
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_request WHERE ref_file_number = 'FIMEX-2026-00013'
+      changes:
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: client_id
+                  value: 6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: REJECTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00013
+              - column:
+                  name: requested_date
+                  value: "2026-01-25 10:00:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+              - column:
+                  name: created_at
+                  value: "2026-01-25 10:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-01-30 14:30:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee
+              - column:
+                  name: client_id
+                  value: 7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c
+              - column:
+                  name: request_type_id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: status
+                  value: REJECTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00014
+              - column:
+                  name: requested_date
+                  value: "2026-01-26 11:30:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: signatory_id
+                  value: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+              - column:
+                  name: created_at
+                  value: "2026-01-26 11:30:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-02 16:45:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: ffffffff-ffff-ffff-ffff-ffffffffffff
+              - column:
+                  name: client_id
+                  value: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
+              - column:
+                  name: request_type_id
+                  value: c3d4e5f6-a7b8-6c7d-0e9f-1a2b3c4d5e6f
+              - column:
+                  name: status
+                  value: REJECTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00015
+              - column:
+                  name: requested_date
+                  value: "2026-01-27 14:15:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+              - column:
+                  name: signatory_id
+                  value: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+              - column:
+                  name: created_at
+                  value: "2026-01-27 14:15:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-03 10:30:00"
+
+  - changeSet:
+      id: 20260311-011-insert-fimex-request-info-complement
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_request WHERE ref_file_number = 'FIMEX-2026-00016'
+      changes:
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 12121212-1212-1212-1212-121212121212
+              - column:
+                  name: client_id
+                  value: 9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: COMPLEMENT_REQUESTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00016
+              - column:
+                  name: requested_date
+                  value: "2026-02-18 10:00:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-18 10:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-18 10:00:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 13131313-1313-1313-1313-131313131313
+              - column:
+                  name: client_id
+                  value: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
+              - column:
+                  name: request_type_id
+                  value: b2c3d4e5-f6a7-5b6c-9d8e-0f1e2d3c4b5a
+              - column:
+                  name: status
+                  value: COMPLEMENT_REQUESTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00017
+              - column:
+                  name: requested_date
+                  value: "2026-02-19 11:30:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-19 11:30:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-19 11:30:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 14141414-1414-1414-1414-141414141414
+              - column:
+                  name: client_id
+                  value: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
+              - column:
+                  name: request_type_id
+                  value: c3d4e5f6-a7b8-6c7d-0e9f-1a2b3c4d5e6f
+              - column:
+                  name: status
+                  value: COMPLEMENT_REQUESTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00018
+              - column:
+                  name: requested_date
+                  value: "2026-02-20 14:00:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-20 14:00:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-20 14:00:00"
+        - insert:
+            tableName: fimex_request
+            columns:
+              - column:
+                  name: id
+                  value: 15151515-1515-1515-1515-151515151515
+              - column:
+                  name: client_id
+                  value: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
+              - column:
+                  name: request_type_id
+                  value: a1b2c3d4-e5f6-4a5b-8c7d-9e8f7a6b5c4d
+              - column:
+                  name: status
+                  value: COMPLEMENT_REQUESTED
+              - column:
+                  name: is_renewal
+                  valueBoolean: false
+              - column:
+                  name: ref_file_number
+                  value: FIMEX-2026-00019
+              - column:
+                  name: requested_date
+                  value: "2026-02-21 09:45:00"
+              - column:
+                  name: expiry_date
+                  value: null
+              - column:
+                  name: agent_id
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: signatory_id
+                  value: null
+              - column:
+                  name: created_at
+                  value: "2026-02-21 09:45:00"
+              - column:
+                  name: updated_at
+                  value: "2026-02-21 09:45:00"
+
+  - changeSet:
+      id: 20260311-012-insert-fimex-product
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_product
+      changes:
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: code_sh
+                  value: 8517.62
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 22222222-2222-2222-2222-222222222222
+              - column:
+                  name: code_sh
+                  value: 6204.49
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 33333333-3333-3333-3333-333333333333
+              - column:
+                  name: code_sh
+                  value: 3004.90
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 44444444-4444-4444-4444-444444444444
+              - column:
+                  name: code_sh
+                  value: 3304.99
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 55555555-5555-5555-5555-555555555555
+              - column:
+                  name: code_sh
+                  value: 1806.31
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 66666666-6666-6666-6666-666666666666
+              - column:
+                  name: code_sh
+                  value: 0603.19
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 77777777-7777-7777-7777-777777777777
+              - column:
+                  name: code_sh
+                  value: 0709.99
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 88888888-8888-8888-8888-888888888888
+              - column:
+                  name: code_sh
+                  value: 3301.29
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 99999999-9999-9999-9999-999999999999
+              - column:
+                  name: code_sh
+                  value: 0904.11
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+              - column:
+                  name: code_sh
+                  value: 9401.51
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+              - column:
+                  name: code_sh
+                  value: 8517.12
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: cccccccc-cccc-cccc-cccc-cccccccccccc
+              - column:
+                  name: code_sh
+                  value: 8479.89
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: code_sh
+                  value: 6204.49
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee
+              - column:
+                  name: code_sh
+                  value: 3304.99
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: ffffffff-ffff-ffff-ffff-ffffffffffff
+              - column:
+                  name: code_sh
+                  value: 3004.90
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 12121212-1212-1212-1212-121212121212
+              - column:
+                  name: code_sh
+                  value: 0901.21
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 13131313-1313-1313-1313-131313131313
+              - column:
+                  name: code_sh
+                  value: 6204.49
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 14141414-1414-1414-1414-141414141414
+              - column:
+                  name: code_sh
+                  value: 3004.90
+        - insert:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  value: 15151515-1515-1515-1515-151515151515
+              - column:
+                  name: code_sh
+                  value: 3304.99
+
+  - changeSet:
+      id: 20260311-013-insert-fimex-attachment
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_attachment
+      changes:
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 11111111-2222-3333-4444-555555555555
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_commerciale_fimex001.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-10 10:30:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 22222222-3333-4444-5555-666666666666
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_conformite_fimex001.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-10 11:15:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 33333333-4444-5555-6666-777777777777
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: attachment_type
+                  value: LICENCE
+              - column:
+                  name: file_name
+                  value: licence_import_fimex001.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-10 11:45:00"
+
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 44444444-5555-6666-7777-888888888888
+              - column:
+                  name: request_id
+                  value: 22222222-2222-2222-2222-222222222222
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_commerciale_fimex002.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-12 11:00:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 55555555-6666-7777-8888-999999999999
+              - column:
+                  name: request_id
+                  value: 22222222-2222-2222-2222-222222222222
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_origine_fimex002.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-12 11:30:00"
+
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 66666666-7777-8888-9999-aaaaaaaaaaaa
+              - column:
+                  name: request_id
+                  value: 33333333-3333-3333-3333-333333333333
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_commerciale_fimex003.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-15 14:30:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 77777777-8888-9999-aaaa-bbbbbbbbbbbb
+              - column:
+                  name: request_id
+                  value: 33333333-3333-3333-3333-333333333333
+              - column:
+                  name: attachment_type
+                  value: LICENCE
+              - column:
+                  name: file_name
+                  value: licence_speciale_fimex003.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-15 15:00:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 88888888-9999-aaaa-bbbb-cccccccccccc
+              - column:
+                  name: request_id
+                  value: 33333333-3333-3333-3333-333333333333
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_analyse_fimex003.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-01-15 15:30:00"
+
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 99999999-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 66666666-6666-6666-6666-666666666666
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_proforma_fimex006.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: PENDING
+              - column:
+                  name: upload_date
+                  value: "2026-02-05 10:30:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+              - column:
+                  name: request_id
+                  value: 66666666-6666-6666-6666-666666666666
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_phyto_fimex006.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: PENDING
+              - column:
+                  name: upload_date
+                  value: "2026-02-05 11:00:00"
+
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: bbbbbbbb-cccc-dddd-eeee-ffffffffffff
+              - column:
+                  name: request_id
+                  value: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_commerciale_fimex010.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-02-12 10:30:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: cccccccc-dddd-eeee-ffff-aaaaaaaaaaaa
+              - column:
+                  name: request_id
+                  value: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_origine_fimex010.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: VALIDATED
+              - column:
+                  name: upload_date
+                  value: "2026-02-12 11:00:00"
+
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: dddddddd-eeee-ffff-aaaa-bbbbbbbbbbbb
+              - column:
+                  name: request_id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_commerciale_fimex013.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: REJECTED
+              - column:
+                  name: upload_date
+                  value: "2026-01-25 10:30:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: eeeeeeee-ffff-aaaa-bbbb-cccccccccccc
+              - column:
+                  name: request_id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_origine_fimex013.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: REJECTED
+              - column:
+                  name: upload_date
+                  value: "2026-01-25 11:00:00"
+
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: ffffffff-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 12121212-1212-1212-1212-121212121212
+              - column:
+                  name: attachment_type
+                  value: FACTURE_COMMERCIALE
+              - column:
+                  name: file_name
+                  value: facture_commerciale_fimex016.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: PENDING
+              - column:
+                  name: upload_date
+                  value: "2026-02-18 10:30:00"
+        - insert:
+            tableName: fimex_attachment
+            columns:
+              - column:
+                  name: id
+                  value: 12121212-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 12121212-1212-1212-1212-121212121212
+              - column:
+                  name: attachment_type
+                  value: CERTIFICAT
+              - column:
+                  name: file_name
+                  value: certificat_origine_fimex016.pdf
+              - column:
+                  name: content
+                  value: 255044462D312E340A25C4E5F2E5EBA7F3A0D0C4C60A342030206F626A0A3C3C2F4C656E6774682035300A2F46696C7465722F466C6174654465636F64653E3E0A73747265616D0A78014DCB310E80200C40D17DA7F80FB4058A966E4E24182498C8A2F1F64A07747C4B5E7E1A28619D732F2D24B0C123776764A1075F98619F0711F9E26847448F6C32676CE064DB93723C2AAD1BB2D55D0AF10F5C6BB703794F0B650A656E6473747265616D0A656E646F626A0A
+              - column:
+                  name: content_type
+                  value: application/pdf
+              - column:
+                  name: file_status
+                  value: PENDING
+              - column:
+                  name: upload_date
+                  value: "2026-02-18 11:00:00"
+
+  - changeSet:
+      id: 20260311-014-insert-fimex-status-history
+      author: seeder
+      preConditions:
+        - onFail: MARK_RAN
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT COUNT(*) FROM fimex_status_history
+      changes:
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 11111111-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: from_status
+                  value: null
+              - column:
+                  name: to_status
+                  value: SUBMITTED
+              - column:
+                  name: changed_by
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: comment
+                  value: Dépôt de la demande
+              - column:
+                  name: created_at
+                  value: "2026-01-10 09:00:00"
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 22222222-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: from_status
+                  value: SUBMITTED
+              - column:
+                  name: to_status
+                  value: INITIATED
+              - column:
+                  name: changed_by
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: comment
+                  value: Prise en charge par l'agent instructeur
+              - column:
+                  name: created_at
+                  value: "2026-01-11 14:00:00"
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 33333333-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: from_status
+                  value: INITIATED
+              - column:
+                  name: to_status
+                  value: SIGNED
+              - column:
+                  name: changed_by
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: comment
+                  value: Instruction terminée, en attente de signature
+              - column:
+                  name: created_at
+                  value: "2026-01-14 11:30:00"
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 44444444-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: 11111111-1111-1111-1111-111111111111
+              - column:
+                  name: from_status
+                  value: SIGNED
+              - column:
+                  name: to_status
+                  value: APPROVED
+              - column:
+                  name: changed_by
+                  value: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+              - column:
+                  name: comment
+                  value: Demande approuvée par le signataire
+              - column:
+                  name: created_at
+                  value: "2026-01-15 14:30:00"
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 55555555-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: from_status
+                  value: null
+              - column:
+                  name: to_status
+                  value: SUBMITTED
+              - column:
+                  name: changed_by
+                  value: 6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b
+              - column:
+                  name: comment
+                  value: Dépôt de la demande
+              - column:
+                  name: created_at
+                  value: "2026-01-25 10:00:00"
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 66666666-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: from_status
+                  value: SUBMITTED
+              - column:
+                  name: to_status
+                  value: INITIATED
+              - column:
+                  name: changed_by
+                  value: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
+              - column:
+                  name: comment
+                  value: Prise en charge par l'agent instructeur
+              - column:
+                  name: created_at
+                  value: "2026-01-26 09:15:00"
+        - insert:
+            tableName: fimex_status_history
+            columns:
+              - column:
+                  name: id
+                  value: 77777777-aaaa-bbbb-cccc-dddddddddddd
+              - column:
+                  name: request_id
+                  value: dddddddd-dddd-dddd-dddd-dddddddddddd
+              - column:
+                  name: from_status
+                  value: INITIATED
+              - column:
+                  name: to_status
+                  value: REJECTED
+              - column:
+                  name: changed_by
+                  value: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+              - column:
+                  name: comment
+                  value: Documents non conformes - Certificat d'origine manquant
+              - column:
+                  name: created_at
+                  value: "2026-01-30 14:30:00"

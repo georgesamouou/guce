@@ -1,0 +1,34 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: "20260308-006-fimex-product"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: fimex_product
+      changes:
+        - createTable:
+            tableName: fimex_product
+            columns:
+              - column:
+                  name: request_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_fimex_prod_request
+                    references: fimex_request(id)
+              - column:
+                  name: code_sh
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_fimex_prod_ref
+                    references: ref_product(code_sh)
+        - addPrimaryKey:
+            tableName: fimex_product
+            columnNames: request_id, code_sh
+            constraintName: pk_fimex_product
+      rollback:
+        - dropTable:
+            tableName: fimex_product

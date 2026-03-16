@@ -1,0 +1,243 @@
+databaseChangeLog:
+  - changeSet:
+      id: "20260308-001-ref-request-type"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: ref_request_type
+      changes:
+        - createTable:
+            tableName: ref_request_type
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: label
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: ref_request_type
+
+  - changeSet:
+      id: "20260308-002-ref-office"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: ref_office
+      changes:
+        - createTable:
+            tableName: ref_office
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: label
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: ref_office
+
+  - changeSet:
+      id: "20260308-003-ref-organization"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: ref_organization
+      changes:
+        - createTable:
+            tableName: ref_organization
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: label
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: ref_organization
+
+  - changeSet:
+      id: "20260308-004-ref-client"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: ref_client
+      changes:
+        - createTable:
+            tableName: ref_client
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: taxpayer_number
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: company_name
+                  type: varchar(255)
+              - column:
+                  name: office_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_ref_client_office
+                    references: ref_office(id)
+              - column:
+                  name: organization_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_ref_client_org
+                    references: ref_organization(id)
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: ref_client
+
+  - changeSet:
+      id: "20260308-005-ref-product"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: ref_product
+      changes:
+        - createTable:
+            tableName: ref_product
+            columns:
+              - column:
+                  name: code_sh
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: ref_product
+
+  - changeSet:
+      id: "20260308-006-ref-agent"
+      author: "ridha"
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: ref_agent
+      changes:
+        - createTable:
+            tableName: ref_agent
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: full_name
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(150)
+              - column:
+                  name: role
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(100)
+              - column:
+                  name: is_active
+                  type: boolean
+                  defaultValueBoolean: true
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: ref_agent
